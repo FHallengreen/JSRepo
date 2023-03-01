@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 - Exercise 1</title>
+</head>
+<body>
+
+    <div  style="width: 100px;margin: 1px;" id="1">&nbsp;</div>
+    <div  style="width: 100px;margin: 1px;" id="2">&nbsp;</div>
+    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
+    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
+    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
+    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
+    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
+    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
+
+    <button id="btn">Click me</button>
+    <br>
+    <a href="/">back</a>
+    
+
+    <script>
+        const divs = document.querySelectorAll("div");
+        const colorArr = [
+      "red",
+      "green",
+      "blue",
+      "yellow",
+      "pink",
+      "purple",
+      "orange",
+      "black",
+      "white",
+      "grey",
+      "brown",
+      "navy",
+      "maroon",
+      "teal",
+      "olive",
+      "lime",
+      "aqua",
+      "silver",
+      "gold",
+      "beige",
+      "indigo",
+      "coral",
+      "magenta",
+      "turquoise",
+      "khaki",
+      "lavender",
+      "salmon",
+      "tan",
+      "violet",
+      "crimson",
+      "skyblue",
+      "plum",
+      "orchid",
+      "chartreuse",
+      "peach",
+      "thistle",
+      "peru",
+      "steelblue",
+      "darkgreen",
+      "rosybrown",
+      "cornflowerblue"
+    ];
+
+
+    // Advanced solution
+
+        for (let i = 0; i < divs.length; i++) {
+    const span = document.createElement("span"); // create new span element
+    span.textContent = ""; // set initial text content to empty string
+    divs[i].appendChild(span); // add span element to div
+    const randomColor = colorArr[Math.floor(Math.random() * colorArr.length)]; // get random color from colorArr
+    divs[i].style.backgroundColor = randomColor; // set initial background color to random color
+    divs[i].querySelector("span").textContent = randomColor; // set text content of span element to color code
+  }
+    
+   
+   // Advanced Solution
+
+  document.getElementById("btn").onclick = () => {
+    for (let i = 0; i < divs.length; i++) {
+      const randomColor = colorArr[Math.floor(Math.random() * colorArr.length)];
+      divs[i].style.backgroundColor = randomColor;
+      divs[i].querySelector("span").textContent = randomColor; // set text content of span element to color code
+    }
+  };
+    
+</script>
+</body>
+</html>

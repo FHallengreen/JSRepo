@@ -8,7 +8,7 @@
     <style>
 
 a {
-  color: #4b515b;
+  color: #2b2e34;
   text-decoration: none;
   margin-right: 10px;
   transition: border-bottom 0.2s ease-in-out;
@@ -23,6 +23,7 @@ h1 {
   color: #3366BB;
   text-align: center;
   margin-bottom: 1rem;
+
 }
 
 h2 {
@@ -30,13 +31,17 @@ h2 {
   font-weight: bold;
   color: #1d4891;
   margin-bottom: 0.5rem;
+  border-bottom: 2px solid #4b515b;
+  text-align: center;
 }
 
 li {
+    
     font-size: 1.2rem;
     font-weight: bold;
-    color: #1d4891;
     margin-bottom: 0.5rem;
+    text-align: center;
+    list-style-type: none;
 }
 
 .list-box {
@@ -44,8 +49,10 @@ li {
   vertical-align: top;
   width: 30%;
   margin-right: 2%;
-  border: 1px solid #4b515b;
-  padding: 0.4rem;
+  border: 2px solid #4b515b;
+  padding: 0.2rem;
+  text-align: center;
+
 }
 
 .list-box:last-child {
@@ -53,10 +60,37 @@ li {
 }
 
 .github-link {
-    display: block;
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1.2rem;
+  text-align: center;
+}
+
+.github-link a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative; /* added for animation */
+  width: 200px;
+  z-index: 2;
+}
+
+.github-link a img {
+  position: absolute; /* added for animation */
+  top: 0; /* added for animation */
+  left: 0; /* added for animation */
+  transition: transform 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.github-link a:hover img {
+  transform: translateX(200px) rotate(360deg); /* added for animation */
+
+}
+
+.github-link a:hover {
+  color: #4b515b;
 }
 
     </style>
@@ -68,18 +102,19 @@ li {
     <div class="list-box">
         <h2>JS Week 5, day1-Exercises</h2>
         <ul>
-          <li><a href="exerciseDay1.html">Exercise-1</a></li>
-          <li><a href="/htmlDOM/htmlForDOMVideo.html">Exercise-HTMLForDOMVideo</a></li>
+          <li><a href="exerciseDay1.html">Exercise 1</a></li>
+          <li><a href="/htmlDOM/htmlForDOMVideo.html">Exercise HTMLForDOMVideo</a></li>
         </ul>
       </div>
       
       <div class="list-box">
         <h2>JS Week 5, day2-Exercises</h2>
         <ul>
-          <li><a href="js-day2-ex1.html">Exercise-1</a></li>
-          <li><a href="js-day2-ex2.html">Exercise-2</a></li>
-          <li><a href="js-day2-ex3.html">Exercise-3</a></li>
-          <li><a href="js-day2-ex4.html">Exercise-4</a></li>
+          <li><a href="js-day2-ex1.html">Exercise 1</a></li>
+          <li><a href="js-day2-ex2.html">Exercise 2</a></li>
+          <li><a href="js-day2-ex3.html">Exercise 3</a></li>
+          <li><a href="js-day2-ex4.html">Exercise 4</a></li>
+          <li><a href="js-day2-ex5.html">Exercise 5</a></li>
         </ul>
       </div>
       
