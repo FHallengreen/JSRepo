@@ -6,28 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DAY 2 - EXERCISE 5</title>
     <style>
-      #container {
-        width: 226px;
-        height: 274px;
-        border: 3px solid darkblue;
-        margin: auto;
-      }
-      .t1,
-      .t4 {
-        border: 1px solid black;
-        height: 48px;
-        margin-left: 3px;
-        margin-top: 3px;
-        display: inline-block;
-        text-align: center;
-        line-height: 48px;
-      }
-      .t1 {
-        width: 48px;
-      }
-      .t4 {
-        width: 219px;
-      }
+   :root {
+  --bg-color: #282c34;
+  --primary-color: #f1f1f1;
+  --secondary-color: #dcdcdc;
+  --accent-color: #2c2d31;
+  --text-color: white;
+  --button-size: 60px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+#container {
+  max-width: calc(var(--button-size) * 4 + 3px * 3);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--accent-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#display {
+  width: 100%;
+  height: var(--button-size);
+  font-size: 2rem;
+  text-align: right;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--text-color);
+  color: black;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(4, var(--button-size));
+  grid-template-rows: repeat(4, var(--button-size));
+  grid-gap: 3px;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.t1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.t1:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+#calculate {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+#clear {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#clear:hover {
+  background-color: #c82333;
+}
     </style>
   </head>
   <body>
@@ -60,6 +138,11 @@
       <button id="clear">clear</button>
     </div>
 
+    <div style="display: flex; justify-content: center;">
+        <a href="#" onclick="history.back(); return false;" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background-color: var(--accent-color); color: var(--text-color); border-radius: 5px; text-decoration: none; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+            &larr; Back
+          </a>
+    </div>
     <script>
 
 const display = document.getElementById("display");
