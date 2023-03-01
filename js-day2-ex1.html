@@ -1,96 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 2 - Exercise 1</title>
-</head>
-<body>
+    <style>
+      /* Set global font styles */
 
-    <div  style="width: 100px;margin: 1px;" id="1">&nbsp;</div>
-    <div  style="width: 100px;margin: 1px;" id="2">&nbsp;</div>
-    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
-    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
-    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
-    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
-    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
-    <div  style="width: 100px;margin: 1px;" id="3">&nbsp;</div>
+      body {
+        font-family: sans-serif;
+        font-size: 16px;
+        color: #333;
+        background-color: #282c34;
+      }
 
+      /* Style the container */
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Style the divs */
+      .container > div {
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        background-color: #282c34;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #282c34;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Style the button */
+      #btn {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #333;
+        color: white;
+        cursor: pointer;
+        border: none;
+      }
+
+      /* Style the "back" link */
+      a {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      /* Style the h1 element */
+      h1 {
+        font-size: 2rem;
+        margin: 0;
+        padding: 1rem;
+        text-align: center;
+        background-color: white;
+        color: var(--bg-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Day 2 - Exercise 1</h1>
+    <br />
+    <div class="container">
+      <div id="1">1<span></span></div>
+      <div id="2">2<span></span></div>
+      <div id="3">3<span></span></div>
+      <div id="4">4<span></span></div>
+      <div id="5">5<span></span></div>
+      <div id="6">6<span></span></div>
+      <div id="7">7<span></span></div>
+    </div>
     <button id="btn">Click me</button>
-    <br>
     <a href="/">back</a>
-    
-
     <script>
-        const divs = document.querySelectorAll("div");
-        const colorArr = [
-      "red",
-      "green",
-      "blue",
-      "yellow",
-      "pink",
-      "purple",
-      "orange",
-      "black",
-      "white",
-      "grey",
-      "brown",
-      "navy",
-      "maroon",
-      "teal",
-      "olive",
-      "lime",
-      "aqua",
-      "silver",
-      "gold",
-      "beige",
-      "indigo",
-      "coral",
-      "magenta",
-      "turquoise",
-      "khaki",
-      "lavender",
-      "salmon",
-      "tan",
-      "violet",
-      "crimson",
-      "skyblue",
-      "plum",
-      "orchid",
-      "chartreuse",
-      "peach",
-      "thistle",
-      "peru",
-      "steelblue",
-      "darkgreen",
-      "rosybrown",
-      "cornflowerblue"
-    ];
+      const divs = document.querySelectorAll(".container div");
+      const colorArr = [
+        "red",
+        "green",
+        "blue",
+        "yellow",
+        "pink",
+        "purple",
+        "orange",
+        "black",
+        "white",
+        "grey",
+        "brown",
+        "navy",
+        "maroon",
+        "teal",
+        "olive",
+        "lime",
+        "aqua",
+        "silver",
+        "gold",
+        "beige",
+        "indigo",
+        "coral",
+        "magenta",
+        "turquoise",
+        "khaki",
+        "lavender",
+        "salmon",
+        "tan",
+        "violet",
+        "crimson",
+        "skyblue",
+        "plum",
+        "orchid",
+        "chartreuse",
+        "peach",
+        "thistle",
+        "peru",
+        "steelblue",
+        "darkgreen",
+        "rosybrown",
+        "cornflowerblue",
+      ];
 
+      // Advanced solution
+      for (let i = 0; i < divs.length; i++) {
+        const span = document.createElement("span"); // create new span element
+        divs[i].appendChild(span); // add span element to div
+        const randomColor =
+          colorArr[Math.floor(Math.random() * colorArr.length)]; // get random color from colorArr
+        divs[i].style.backgroundColor = randomColor; // set initial background color to random color
+      }
 
-    // Advanced solution
-
+      // Advanced Solution
+      document.getElementById("btn").onclick = () => {
         for (let i = 0; i < divs.length; i++) {
-    const span = document.createElement("span"); // create new span element
-    span.textContent = ""; // set initial text content to empty string
-    divs[i].appendChild(span); // add span element to div
-    const randomColor = colorArr[Math.floor(Math.random() * colorArr.length)]; // get random color from colorArr
-    divs[i].style.backgroundColor = randomColor; // set initial background color to random color
-    divs[i].querySelector("span").textContent = randomColor; // set text content of span element to color code
-  }
-    
-   
-   // Advanced Solution
-
-  document.getElementById("btn").onclick = () => {
-    for (let i = 0; i < divs.length; i++) {
-      const randomColor = colorArr[Math.floor(Math.random() * colorArr.length)];
-      divs[i].style.backgroundColor = randomColor;
-      divs[i].querySelector("span").textContent = randomColor; // set text content of span element to color code
-    }
-  };
-    
-</script>
-</body>
+          const randomColor =
+            colorArr[Math.floor(Math.random() * colorArr.length)];
+          divs[i].style.backgroundColor = randomColor;
+        }
+      };
+    </script>
+  </body>
 </html>

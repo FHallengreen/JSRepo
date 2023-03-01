@@ -1,16 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 2 - Exercise 2</title>
     <style>
-        .my-div {width: 25px; height: 25px;background-color:red; margin:1px;}
-      </style>
-     
-</head>
-<body>
+/*       .my-div {
+        width: 25px;
+        height: 25px;
+        background-color: red;
+        margin: 1px;
+
     
-</body>
+      }
+ */
+    :root {
+      --bg-color: #282c34;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background-color: var(--bg-color);
+    }
+
+    h1 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: white;
+  color: var(--bg-color);
+}
+    #outer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 30vh;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    .my-div {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border-radius: 50%;
+      background-color: red;
+      transition: background-color 0.3s ease;
+    }
+
+    .my-div:hover {
+      background-color: rgb(173, 67, 67);
+    }
+
+    #console-output {
+  display: block;
+  margin: 20px auto;
+  width: 80%;
+  height: 200px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  background-color: white;
+  color: black;
+  border: 1px solid var(--bg-color);
+  resize: none;
+  overflow-y: scroll;
+}
+
+h2 {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+}
+
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Day 2 - Exercise 2</h1>
+    <div id="outer">
+    <div class="my-div" id="1"></div>
+    <div class="my-div" id="2"></div>
+    <div class="my-div" id="3"></div>
+    <div class="my-div" id="4"></div>
+    <div class="my-div" id="5"></div>
+    <div class="my-div" id="6"></div>
+    <div class="my-div" id="7"></div>
+    <div class="my-div" id="8"></div>
+    <div class="my-div" id="9"></div>
+    <div class="my-div" id="10"></div>
+  </div>
+
+  <h2>Console Output:</h2>
+  <textarea id="console-output" cols="80" rows="10"></textarea>
+
+  <a href="/">back</a>
+
+    <script>
+      const firstDiv = document.getElementById("1");
+      const secondDiv = document.getElementById("2");
+
+      const consoleOutput = document.getElementById('console-output');
+
+      console.log = (message) => {
+      consoleOutput.value += message + '\n';
+    };
+
+      document.getElementById("outer").onclick = (evt) => {
+        const id = evt.target.id;
+        if (evt.target.id !== "outer"){
+
+        console.log(`Hi from ${id}`)
+        }
+      };
+
+       /** document.getElementById("outer").onclick = (evt) => { ... }
+This line adds an event listener to the HTML element with the ID "outer". The event listener listens for the "click" event on elements inside the "outer" element.
+
+(evt) => { ... }
+This is an arrow function that gets executed when the "click" event occurs. The evt parameter is an object that contains information about the event.
+
+const id = evt.target.id;
+This line extracts the id property from the target of the event (evt.target). The target is the element that was clicked on, so this line extracts the ID of the clicked element and assigns it to the id variable.
+
+So, when the user clicks on an element inside the "outer" element, the event listener defined in this code block will execute and log a message to the console that says "Hi from" followed by the ID of the clicked element. 
+Note that the IDs used in this code block are assumed to be present in the HTML code of the page, which is not shown here.
+**/
+
+    </script>
+  </body>
 </html>

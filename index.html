@@ -1,137 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Java Script - Week 5 Hand-in</title>
     <style>
+      :root {
+        --bg-color: #282c34;
+        --primary-color: #3366bb;
+        --secondary-color: #1d4891;
+        --accent-color: #4b515b;
+        --text-color: white;
+      }
 
-a {
-  color: #2b2e34;
-  text-decoration: none;
-  margin-right: 10px;
-  transition: border-bottom 0.2s ease-in-out;
-}
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+      }
 
-a:hover {
-  border-bottom: 2px solid #4b515b;
-}
-h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #3366BB;
-  text-align: center;
-  margin-bottom: 1rem;
+      h1 {
+        font-size: 2rem;
+        margin: 0;
+        padding: 1rem;
+        text-align: center;
+        background-color: var(--text-color);
+        color: var(--bg-color);
+      }
 
-}
+      h2 {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--text-color);
+      }
 
-h2 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #1d4891;
-  margin-bottom: 0.5rem;
-  border-bottom: 2px solid #4b515b;
-  text-align: center;
-}
+      a {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: border-bottom 0.2s ease-in-out;
+      }
 
-li {
-    
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    text-align: center;
-    list-style-type: none;
-}
+      a:hover {
+        color: #4b515b;
+        border-bottom: none;
+        background-color: #ffffff;
+      }
+      .list-box {
+        display: inline-block;
+        vertical-align: top;
+        width: 30%;
+        margin-right: 2%;
+        border: 2px solid var(--accent-color);
+        padding: 0.2rem;
+        text-align: center;
+      }
 
-.list-box {
-  display: inline-block;
-  vertical-align: top;
-  width: 30%;
-  margin-right: 2%;
-  border: 2px solid #4b515b;
-  padding: 0.2rem;
-  text-align: center;
+      .list-box:last-child {
+        margin-right: 0;
+      }
 
-}
+      .github-link {
+        text-align: center;
+      }
 
-.list-box:last-child {
-  margin-right: 0;
-}
+      .github-link a {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--accent-color);
+        border-radius: 4px;
+        font-weight: bold;
+        text-decoration: none;
+        position: relative; /* added for animation */
+        width: 200px;
+        z-index: 2;
+      }
 
-.github-link {
-  text-align: center;
-}
+      .github-link a img {
+        position: absolute; /* added for animation */
+        top: 0; /* added for animation */
+        left: 0; /* added for animation */
+        transition: transform 0.6s ease-in-out;
+        z-index: 1;
+        filter: invert(1); /* added to turn the logo white */
+      }
 
-.github-link a {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  border: 2px solid #000000;
-  border-radius: 4px;
-  font-weight: bold;
-  text-decoration: none;
-  position: relative; /* added for animation */
-  width: 200px;
-  z-index: 2;
-}
+      .github-link a:hover img {
+        transform: translateX(200px) rotate(360deg); /* added for animation */
+      }
 
-.github-link a img {
-  position: absolute; /* added for animation */
-  top: 0; /* added for animation */
-  left: 0; /* added for animation */
-  transition: transform 0.6s ease-in-out;
-  z-index: 1;
-}
-
-.github-link a:hover img {
-  transform: translateX(200px) rotate(360deg); /* added for animation */
-
-}
-
-.github-link a:hover {
-  color: #4b515b;
-}
-
+      .github-link a:hover {
+        color: var(--accent-color);
+      }
     </style>
-</head>
-<body>
-<h1 style="text-align: center;">WEEK 5 HAND-IN</h1>
+  </head>
+  <body>
+    <h1 style="text-align: center">WEEK 5 HAND-IN</h1>
     <h2>Frederik Hansen - fred70p9@stud.kea.dk</h2>
 
     <div class="list-box">
-        <h2>JS Week 5, day1-Exercises</h2>
-        <ul>
-          <li><a href="exerciseDay1.html">Exercise 1</a></li>
-          <li><a href="/htmlDOM/htmlForDOMVideo.html">Exercise HTMLForDOMVideo</a></li>
-        </ul>
-      </div>
-      
-      <div class="list-box">
-        <h2>JS Week 5, day2-Exercises</h2>
-        <ul>
-          <li><a href="js-day2-ex1.html">Exercise 1</a></li>
-          <li><a href="js-day2-ex2.html">Exercise 2</a></li>
-          <li><a href="js-day2-ex3.html">Exercise 3</a></li>
-          <li><a href="js-day2-ex4.html">Exercise 4</a></li>
-          <li><a href="js-day2-ex5.html">Exercise 5</a></li>
-        </ul>
-      </div>
-      
-      <div class="list-box">
-        <h2>JS Week 5, day3-Exercises</h2>
-        <ul>
-          <!--
+      <h2>JS Week 5, day1-Exercises</h2>
+      <ul>
+        <li><a href="exerciseDay1.html">Exercise 1</a></li>
+        <li>
+          <a href="/htmlDOM/htmlForDOMVideo.html">Exercise HTMLForDOMVideo</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="list-box">
+      <h2>JS Week 5, day2-Exercises</h2>
+      <ul>
+        <li><a href="js-day2-ex1.html">Exercise 1</a></li>
+        <li><a href="js-day2-ex2.html">Exercise 2</a></li>
+        <li><a href="js-day2-ex3.html">Exercise 3</a></li>
+        <li><a href="js-day2-ex4.html">Exercise 4</a></li>
+        <li><a href="js-day2-ex5.html">Exercise 5</a></li>
+      </ul>
+    </div>
+
+    <div class="list-box">
+      <h2>JS Week 5, day3-Exercises</h2>
+      <ul>
+        <!--
           … same as above, for day3
           -->
-        </ul>
-      </div>
+      </ul>
+    </div>
 
-      <div class="github-link">
-        <a href="https://github.com/FHallengreen/JSWeek1">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" width="32" height="32">
-          View on GitHub
-        </a>
-      </div>
-</body>
+    <div class="github-link">
+      <a href="https://github.com/FHallengreen/JSWeek1">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+          alt="GitHub Logo"
+          width="32"
+          height="32"
+        />
+        View on GitHub
+      </a>
+    </div>
+  </body>
 </html>
