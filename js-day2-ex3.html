@@ -114,7 +114,8 @@ li.fade-out {
 ];
 
 function createNamesList(){
-    document.getElementById("my-ul").innerHTML = namesArr.map(name => `<li>${name}</li>`).join("")
+    document.getElementById("my-ul").innerHTML = namesArr.map(name => `<li>${encodeURIComponent(name)}</li>`).join("").replaceAll("%20"," ")
+    
 }
 createNamesList()
 
