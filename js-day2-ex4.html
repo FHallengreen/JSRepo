@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DAY 2 - EXERCISE 4</title>
+    <style>
+   :root {
+  --bg-color: #282c34;
+  --primary-color: #3366bb;
+  --secondary-color: #1d4891;
+  --accent-color: #4b515b;
+  --text-color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+h2 {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  cursor: pointer;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--accent-color);
+}
+
+tbody tr:hover {
+  background-color: var(--secondary-color);
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+#reset {
+  background-color: #dc3545;
+}
+
+li.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+    
+    </style>
+  </head>
+  <body>
+    <h1>DAY 2 - EXERCISE 4</h1>
+
+    <div style="display: flex; justify-content: center;">
+    <h3 id="display-box" style="color: white;"></h3>
+</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Year</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div style="display: flex; justify-content: center;">
+    <form>
+      <input id="filter-input" />
+      <button id="filter-btn">Price is less than</button>
+      <input id="sort-input" />
+      <button id="sort-btn">Filter by maker</button>
+      <button id="reset">Reset table</button>
+    </form>
+</div>
+<div style="display: flex; justify-content: center;">
+    <a href="#" onclick="history.back(); return false;" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background-color: var(--accent-color); color: var(--text-color); border-radius: 5px; text-decoration: none; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+        &larr; Back
+      </a>
+</div>
+    <script>
+ const cars = [
+  { id: 1, year: 1997, make: "Ford", model: "E350", price: 3000 },
+  { id: 2, year: 1999, make: "Chevy", model: "Venture", price: 4900 },
+  { id: 3, year: 2000, make: "Chevy", model: "Venture", price: 5000 },
+  { id: 4, year: 1996, make: "Jeep", model: "Grand Cherokee", price: 4799 },
+  { id: 5, year: 2005, make: "Volvo", model: "V70", price: 44799 },
+  { id: 6, year: 2002, make: "Honda", model: "Civic", price: 6000 },
+  { id: 7, year: 2010, make: "Toyota", model: "Camry", price: 12000 },
+  { id: 8, year: 2015, make: "Nissan", model: "Altima", price: 15000 },
+  { id: 9, year: 2018, make: "Ford", model: "Fusion", price: 18000 },
+  { id: 10, year: 2020, make: "Tesla", model: "Model 3", price: 40000 },
+  { id: 11, year: 2019, make: "Chevy", model: "Bolt", price: 28000 },
+  { id: 12, year: 2012, make: "Volkswagen", model: "Passat", price: 8000 },
+  { id: 13, year: 2017, make: "Subaru", model: "Outback", price: 20000 },
+  { id: 14, year: 2008, make: "BMW", model: "M3", price: 15000 },
+  { id: 15, year: 2021, make: "Audi", model: "Q5", price: 50000 },
+  { id: 16, year: 2013, make: "Lexus", model: "RX", price: 22000 },
+  { id: 17, year: 2016, make: "Mercedes-Benz", model: "C-Class", price: 30000 },
+  { id: 18, year: 2009, make: "Mazda", model: "CX-7", price: 7000 }
+];
+
+      function createTable(cars) {
+        const rows = cars.map(
+          (car) => `
+    <tr>
+      <td>${car.id}</td>
+      <td>${car.year}</td>
+      <td>${car.make}</td>
+      <td>${car.model}</td>
+      <td>${car.price}</td>
+    </tr>
+  `
+        );
+        return rows.join("");
+      }
+
+      function renderTable(cars) {
+        const tableBody = document.querySelector("tbody");
+        tableBody.innerHTML = createTable(cars);
+      }
+
+      renderTable(cars);
+
+
+      document.getElementById("reset").onclick = (evt) => {
+        evt.preventDefault()
+        renderTable(cars)
+      }
+
+      document.getElementById("filter-btn").onclick = (evt) => {
+        evt.preventDefault();
+        const input = document.getElementById("filter-input");
+        const priceLowerThan = input.value;
+        const filteredCars = cars.filter((car) => car.price < priceLowerThan);
+        renderTable(filteredCars);
+        const filteredPriceDisplay = document.getElementById("display-box");
+        filteredPriceDisplay.textContent = `Displaying cars where price is lower than ${priceLowerThan}`;
+        input.value = "";
+      };
+
+      document.getElementById("sort-btn").onclick = (evt) => {
+        evt.preventDefault();
+        const inputSort = document.getElementById("sort-input");
+        const sortByMaker = inputSort.value;
+        const sortedCars = cars.filter((car) => car.make === sortByMaker);
+        renderTable(sortedCars);
+        const sortedCarsDisplay = document.getElementById("display-box");
+        sortedCarsDisplay.textContent = `Displaying cars where the maker is ${sortByMaker}`;
+        inputSort.value = "";
+      };
+
+      //   SORTING
+      let isSortedByID = true;
+      let isSortedByYear = true;
+      let isSortedByModel = true;
+      let isSortedByMaker = true;
+      let isSortedByPrice = true;
+
+      //   ID
+      const headerPrice = document.querySelector("th:nth-of-type(5)");
+      headerPrice.addEventListener("click", () => {
+        if (isSortedByPrice) {
+          const sortedCars = cars.sort((a, b) => a.price - b.price);
+          renderTable(sortedCars);
+        } else {
+          const sortedCars = cars.sort((a, b) => b.price - a.price);
+          renderTable(sortedCars);
+        }
+        isSortedByPrice = !isSortedByPrice;
+      });
+
+      // YEAR
+
+      const headerYear = document.querySelector("th:nth-of-type(2)");
+      headerYear.addEventListener("click", () => {
+        if (isSortedByYear) {
+          const sortedCars = cars.sort((a, b) => a.year - b.year);
+          renderTable(sortedCars);
+        } else {
+          const sortedCars = cars.sort((a, b) => b.year - a.year);
+          renderTable(sortedCars);
+        }
+        isSortedByYear = !isSortedByYear;
+      });
+
+      // ID
+
+      const headerID = document.querySelector("th:nth-of-type(1)");
+      headerID.addEventListener("click", () => {
+        if (isSortedByID) {
+          const sortedCars = cars.sort((a, b) => a.id - b.id);
+          renderTable(sortedCars);
+        } else {
+          const sortedCars = cars.sort((a, b) => b.id - a.id);
+          renderTable(sortedCars);
+        }
+        isSortedByID = !isSortedByID;
+      });
+
+      //   Model
+      const headerModel = document.querySelector("th:nth-of-type(4)");
+      headerModel.addEventListener("click", () => {
+        if (isSortedByModel) {
+          const sortedCars = cars.sort((a, b) => a.model.localeCompare(b.model));
+          renderTable(sortedCars);
+        } else {
+          const sortedCars = cars.sort((a, b) => b.model.localeCompare(a.model));
+          renderTable(sortedCars);
+        }
+        isSortedByModel = !isSortedByModel;
+      });
+
+    //   Maker
+    const headerMake = document.querySelector("th:nth-of-type(3)");
+    headerMake.addEventListener("click", () => {
+        if (isSortedByMaker) {
+          const sortedCars = cars.sort((a, b) => a.make.localeCompare(b.make));
+          renderTable(sortedCars);
+        } else {
+          const sortedCars = cars.sort((a, b) => b.make.localeCompare(a.make));
+          renderTable(sortedCars);
+        }
+        isSortedByMaker = !isSortedByMaker;
+      });
+
+    </script>
+  </body>
+</html>

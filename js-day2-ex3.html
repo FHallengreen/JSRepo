@@ -6,10 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<style>
+    :root {
+      --bg-color: #282c34;
+      --primary-color: #3366bb;
+      --secondary-color: #1d4891;
+      --accent-color: #4b515b;
+      --text-color: white;
+    }
+
+    #my-ul {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 0;
+  list-style: none;
+}
+
+#my-ul li {
+  margin: 10px;
+  padding: 10px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+      padding: 1rem;
+      text-align: center;
+      background-color: var(--text-color);
+      color: var(--bg-color);
+    }
+
+    h2 {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text-color);
+    }
+
+
+
+button {
+  background-color: #4b515b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2b2e34;
+}
+li.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+</style>
+
 <body>
-    
+
+    <h1>DAY 2 - EXERCISE 3</h1>
+    <ul id="my-ul"></ul>
+    <div style="display: flex; justify-content: center;">
+<form>
+        <input id="name-input">
+        <button id="btn-addName">Add name</button>
+        <button id="btn-removeFirst">Remove first</button>
+        <button id="btn-removeLast">Remove last</button>
+    </form>
+</div>
+<div style="display: flex; justify-content: center;">
+    <a href="#" onclick="history.back(); return false;" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background-color: var(--accent-color); color: var(--text-color); border-radius: 5px; text-decoration: none; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+        &larr; Back
+      </a>
+      </div>
 <script>
-    const funnyNames = [
+    const namesArr = [
   "Phil McCracken",
   "Ben Dover",
   "Heywood Jablome",
@@ -25,13 +111,40 @@
   "Dick Hertz",
   "Eileen Dover",
   "Ophelia Cox",
-  "Hugh Jass",
-  "Gabe Itch",
-  "Ollie Tabooger",
-  "Bud Weiser",
-  "Willie B. Hardigan"
 ];
 
+function createNamesList(){
+    document.getElementById("my-ul").innerHTML = namesArr.map(name => `<li>${name}</li>`).join("")
+}
+createNamesList()
+
+document.getElementById("btn-addName").onclick = (evt) => {
+    evt.preventDefault()
+    const input = document.getElementById("name-input")
+    const newName = input.value
+    namesArr.push(newName);
+    createNamesList()
+    input.value = ""
+}
+
+document.getElementById("btn-removeFirst").onclick = (evt) => {
+    evt.preventDefault()
+    const firstName = document.querySelector("#my-ul li:first-child");
+    firstName.classList.add("fade-out");
+    namesArr.shift();
+    setTimeout(() => {
+        createNamesList()
+    }, 300);
+}
+document.getElementById("btn-removeLast").onclick = (evt) => {
+    evt.preventDefault()
+    const lastName = document.querySelector("#my-ul li:last-child");
+    lastName.classList.add("fade-out");
+    namesArr.pop();
+    setTimeout(() => {
+        createNamesList()
+    }, 300);
+}
 
 
 </script>
