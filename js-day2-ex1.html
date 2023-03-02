@@ -9,7 +9,7 @@
       /* Set global font styles */
 
       body {
-        font-family: sans-serif;
+        font-family: 'Lucida Sans', sans-serif;
         font-size: 16px;
         color: #333;
         background-color: #282c34;
@@ -79,6 +79,14 @@
     </style>
   </head>
   <body>
+    <div id="nav-placeholder">
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      $(function(){
+        $("#nav-placeholder").load("navbar.html");
+      });
+      </script>
     <h1>DAY 2 - EXERCISE 1</h1>
     <br />
     <div class="container">

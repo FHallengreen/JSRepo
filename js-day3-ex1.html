@@ -17,7 +17,8 @@
       body {
         margin: 0;
         padding: 0;
-        font-family: Arial, sans-serif;
+        font-family: 'Lucida Sans', sans-serif;
+
         color: var(--text-color);
         background-color: var(--bg-color);
       }
@@ -175,7 +176,16 @@
       }
     </style>
   </head>
+  
   <body>
+    <div id="nav-placeholder">
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      $(function(){
+        $("#nav-placeholder").load("navbar.html");
+      });
+      </script>
       <h1>Day 3, Exercise 1</h1>
 
       <div style="margin-left: 30%; margin-top: 30px; ">
