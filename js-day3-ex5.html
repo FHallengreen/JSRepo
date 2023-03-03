@@ -12,12 +12,12 @@
       }
 
       h2 {
-  text-align: center;
-  margin-top: 2rem;
-  color: #8b0000; /* Dark red */
-  font-size: 3rem;
-  text-shadow: 1px 1px 2px #c0c0c0; /* Light gray */
-}
+        text-align: center;
+        margin-top: 2rem;
+        color: #8b0000; /* Dark red */
+        font-size: 3rem;
+        text-shadow: 2px 2px 5px #c0c0c0; 
+      }
 
       .table {
         margin: 2rem auto;
@@ -77,6 +77,27 @@
         text-align: center;
         color: var(--bg-color);
       }
+
+      .back-button {
+        background-color: #8b0000; /* Dark red */
+        border: none;
+        color: #fff; /* White */
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px #c0c0c0; /* Light gray */
+      }
+
+      .back-button:hover {
+        background-color: #fff; /* White */
+        color: #8b0000; /* Dark red */
+        text-shadow: none;
+        box-shadow: none;
+      }
     </style>
   </head>
   <body>
@@ -107,7 +128,7 @@
       </thead>
       <tbody id="tbl1"></tbody>
     </table>
-
+    <a href="index.html" class="back-button">Back</a>
     <script src="beers.js"></script>
   </body>
 </html>

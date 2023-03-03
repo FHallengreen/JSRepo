@@ -14,7 +14,7 @@ if (prevSelected) {
   prevSelected.classList.remove("selected");
 
   // Set the fill color to the default color of the SVG image
-  prevSelected.style.fill = "#dcdcdc";
+  prevSelected.style.fill = "white";
 }
 
 // Set the new element to selected
