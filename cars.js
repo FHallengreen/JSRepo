@@ -94,7 +94,7 @@ document.getElementById("btn-fetch-car").onclick = findCarByID;
 function findCarByID() {
   const id = document.getElementById("text-for-id2").value;
   //Fetch and insert into table
-  fetch(URLCar + '/'+ id)
+  fetch(URLCar + "/" + id)
     .then((res) => res.json())
     .then((car) => {
       const tr = `
@@ -105,10 +105,15 @@ function findCarByID() {
       <td id="update-discount" contenteditable="true">${car.bestDiscount}</td>
       </tr>`;
       document.getElementById("tbody-car-fetched").innerHTML = tr;
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("Something went wrong!");
     });
 }
 
 document.getElementById("btn-update-car").onclick = updateCar;
+const returnMessage = document.getElementById("update-car-message");
 
 function updateCar() {
   const inputID = document.getElementById("text-for-id2").value;
@@ -120,18 +125,17 @@ function updateCar() {
     bestDiscount: document.getElementById("update-discount").textContent,
   };
 
-  fetch(
-    URLCar + '/'+ inputID,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(car),
+  fetch(URLCar + "/" + inputID, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(car),
+  })
+    .then((res) => res.json())
+    .then((updatedCar) => {
+      returnMessage.textContent = "Car updated successfully!";
+      console.log("Car updated: ", car);
     })
-      .then((res) => res.json())
-      .then((updatedCar) => {
-        console.log("Car updated: ", car);
-      })
-  .catch((error) => alert("Error updating car: ", error));
+    .catch((error) => alert("Error updating car: ", error));
 }
