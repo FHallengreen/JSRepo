@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DAY 3 - EXERCISE 5</title>
+    <style>
+      body {
+        background-color: #f5deb3; /* Wheat color */
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      h2 {
+  text-align: center;
+  margin-top: 2rem;
+  color: #8b0000; /* Dark red */
+  font-size: 3rem;
+  text-shadow: 1px 1px 2px #c0c0c0; /* Light gray */
+}
+
+      .table {
+        margin: 2rem auto;
+        border-collapse: collapse;
+        width: 80%;
+      }
+
+      th,
+      td {
+        padding: 0.5rem;
+        text-align: left;
+      }
+
+      th {
+        background-color: #8b0000; /* Dark red */
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #ffe4c4; /* Light salmon */
+      }
+
+      #div2 {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      #filter-abv {
+        font-size: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #8b0000; /* Dark red */
+        border-radius: 0.25rem;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1rem;
+      }
+
+      #abv-btn {
+        font-size: 1rem;
+        padding: 0.5rem;
+        background-color: #8b0000; /* Dark red */
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      #abv-btn:hover {
+        background-color: #ff6347; /* Tomato */
+      }
+      h1 {
+        font-size: 2rem;
+        margin: 0;
+        padding: 1rem;
+        text-align: center;
+        color: var(--bg-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+    </script>
+
+    <h1>DAY 3, EXERCISE 4</h1>
+    <h2>Cool Beers</h2>
+    <div id="div2">
+      <input type="number" id="filter-abv" />
+      <button id="abv-btn" class="btn btn-secondary">
+        Show only beers with Abv above
+      </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Tag line</th>
+          <th>Abv</th>
+          <th>IBU</th>
+        </tr>
+      </thead>
+      <tbody id="tbl1"></tbody>
+    </table>
+
+    <script src="beers.js"></script>
+  </body>
+</html>
