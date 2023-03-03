@@ -105,8 +105,8 @@
       }
 
       thead {
-        background-color: var(--primary-color);
-        color: white;
+        background-color: rgba(135, 207, 235, 0.664);
+        color: black;
       }
 
       th,
@@ -120,7 +120,8 @@
       }
 
       tbody tr:nth-child(even) {
-        background-color: var(--secondary-color);
+        background-color: rgba(135, 206, 250, 0.527);
+        color: black;
       }
 
       tbody tr:hover {
@@ -131,7 +132,7 @@
         margin: 0;
         padding: 1rem;
         text-align: center;
-        background-color: var(--text-color);
+        background-color: whitesmoke;
         color: var(--bg-color);
       }
     </style>
@@ -161,6 +162,7 @@
                 <th>ID</th>
                 <th>Brand</th>
                 <th>Price Per day</th>
+                <th>Best Discount</th>
               </tr>
             </thead>
             <tbody id="tbody-cars"></tbody>
@@ -168,7 +170,7 @@
         </div>
         <div class="item">
           <h3>Find a single Member</h3>
-          <label for="text-for-id">Id</label>&nbsp;<input id="text-for-id" />
+          <label for="text-for-id">Id</label>&nbsp;<input id="text-for-id" required/>
           <button id="btn-find-member">Find</button>
           <table>
             <thead>
@@ -185,22 +187,22 @@
         <div class="item">
           <h3>Add a Car</h3>
           <div>
-            <label for="input-field1">Brand</label>&nbsp;<input
+            <label for="input-field1">Brand</label>&nbsp;<input required
               id="input-brand"
             />
           </div>
           <div>
-            <label for="input-field2">Model</label>&nbsp;<input
+            <label for="input-field2">Model</label>&nbsp;<input required
               id="input-model"
             />
           </div>
           <div>
-            <label for="input-field3">Price Per Day</label>&nbsp;<input
+            <label for="input-field3">Price Per Day</label>&nbsp;<input required type="number"
               id="input-priceprday"
             />
           </div>
           <div>
-            <label for="input-field4">Best Discount</label>&nbsp;<input
+            <label for="input-field4">Best Discount</label>&nbsp;<input required type="number"
               id="input-bestdiscount"
             />
           </div>
@@ -221,23 +223,22 @@
           </table>
         </div>
         <div class="item">
-          <h3>Edit a Car or a Member</h3>
-          <label for="text-for-id2">Id</label>&nbsp;<input id="text-for-id2" />
-          <button id="btn-fetch-car">Find item to edit</button>
+          <h3>Edit a Car</h3>
+          <label for="text-for-id2">Id</label>&nbsp;<input id="text-for-id2" required type="number"/>
+          <button id="btn-fetch-car">Search for car</button>
           <table>
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Brand</th>
                 <th>Price Per day</th>
+                <th>Best Discount</th>
               </tr>
             </thead>
             <tbody id="tbody-car-fetched"></tbody>
           </table>
-          <button>Submit edited item</button>
-          <p>
-            Use one of the two GET pages to verify that "something" was added
-          </p>
+          <button id="btn-update-car">Update car</button>
+   
         </div>
       </div>
     </div>

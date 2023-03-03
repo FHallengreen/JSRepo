@@ -58,13 +58,13 @@
       }
 
       /* Style the "back" link */
-      a {
+      a.back {
         display: block;
         margin-top: 20px;
         text-align: center;
         color: white;
         text-decoration: none;
-        font-size: 16px;
+        /* font-size: 16px; */
       }
 
       /* Style the h1 element */
@@ -73,7 +73,7 @@
         margin: 0;
         padding: 1rem;
         text-align: center;
-        background-color: white;
+        background-color: whitesmoke;
         color: var(--bg-color);
       }
     </style>
@@ -89,17 +89,33 @@
       </script>
     <h1>DAY 2 - EXERCISE 1</h1>
     <br />
-    <div class="container">
-      <div id="1">1<span></span></div>
-      <div id="2">2<span></span></div>
-      <div id="3">3<span></span></div>
-      <div id="4">4<span></span></div>
-      <div id="5">5<span></span></div>
-      <div id="6">6<span></span></div>
-      <div id="7">7<span></span></div>
+    <div class="container" style="background-color: lightgrey">
+      <div id="1">1</div>
+      <div id="2">2</div>
+      <div id="3">3</div>
+      <div id="4">4</div>
+      <div id="5">5</div>
+      <div id="6">6</div>
+      <div id="7">7</div>
     </div>
     <button id="btn">Click me</button>
-    <a href="/">back</a>
+    <a
+    href="#"
+    onclick="history.back(); return false;"
+    style="
+      display: inline-block;
+      margin: 20px 0;
+      padding: 10px 20px;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      justify-content: center;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    "
+  >
+    &larr; Back
+  </a>
     <script>
       const divs = document.querySelectorAll(".container div");
       const colorArr = [
@@ -147,8 +163,6 @@
       ];
 
       for (let i = 0; i < divs.length; i++) {
-        const span = document.createElement("span"); // create new span element
-        divs[i].appendChild(span); // add span element to div
         const randomColor =
           colorArr[Math.floor(Math.random() * colorArr.length)]; // get random color from colorArr
         divs[i].style.backgroundColor = randomColor; // set initial background color to random color
