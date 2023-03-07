@@ -12,6 +12,7 @@ function getAllCars() {
         <tr>
         <td>${car.car_id}</td>
         <td>${car.brand}</td>
+        <td>${car.model}</td>
         <td>${car.pricePrDay}</td>
         <td>${car.bestDiscount}</td>
         </tr>`
@@ -136,6 +137,7 @@ function updateCar() {
     .then((updatedCar) => {
       returnMessage.textContent = "Car updated successfully!";
       console.log("Car updated: ", car);
+      getAllCars();
     })
     .catch((error) => alert("Error updating car: ", error));
 }
