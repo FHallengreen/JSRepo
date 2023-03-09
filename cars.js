@@ -1,7 +1,7 @@
 document.getElementById("btn-get-all").onclick = getAllCars;
 
-const URLCar = "http://localhost:8080/api/cars";
-const URLMember = "http://localhost:8080/api/members/";
+const URLCar = "cars-r-us2.azurewebsites.net/api/cars";
+const URLMember = "cars-r-us2.azurewebsites.net/api/members/";
 
 function getAllCars() {
   fetch(URLCar)
